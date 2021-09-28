@@ -1,0 +1,79 @@
+/*
+Theme Name: 4B_THEME
+Theme URI: https://jeffersonriobueno.com
+Author: Jefferson Riobueno
+Author URI: https://jeffersonriobueno.com 
+Description:
+Version: 0.0.1
+License: X
+License URI: 
+Text Domain: 
+*/
+::-webkit-scrollbar {
+    width: 8px;
+    height: 0px;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #171614;
+    border: 0px none;
+    border-radius: 50px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgb(252, 109, 26);
+  }
+    
+  ::-webkit-scrollbar-track {
+    background: #cecece;
+    border: 0px none rgb(255, 255, 255);
+    border-radius: 50px;
+  }
+    
+    
+  /*GENERAL-----------------------------------------*/
+  *{
+    margin: 0;
+    padding: 0;
+    color: inherit;
+    text-decoration: none;
+    list-style-type: none;
+    box-sizing: border-box;
+  }
+    
+  body {
+    font-family: 'Montserrat', sans-serif;
+    font-display: fallback;
+    color: #171614;
+  }
+  .head{
+    width: 90%;
+    margin: 20px auto;
+}
+  .cuerpo{
+    width: 90%;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+  .cuerpo > div, .cuerpo > a{
+    width: 22%;
+    border: 1px solid #bdbdbd;
+    padding: 18px 21px;
+    text-align: center;
+    text-transform: uppercase;
+    margin: 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    font-size: 15px;
+    font-weight: 600;
+    border-radius: 5px;
+}
+  .cuerpo > div img, .cuerpo > a img{
+    height: 26px;
+    margin-right: 2px;
+}
+.cuerpo .dir{
+    background: #7ba3fb;
+}
+.cuerpo .file{}

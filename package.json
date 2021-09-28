@@ -1,0 +1,14 @@
+{
+  "name": "file",
+  "version": "1.0.0",
+  "description": "file",
+  "main": "app.js",
+  "scripts": {
+    "test": "test"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/estilo.css">
+    <script src="js/jq.js"></script>
+</head>
+<body>
+    <div class="head">
+        <h2>Listado de Archivos</h2>
+        <div class="ruta">Ruta:</div>
+        <a href="#" onclick="window.location.reload()">Inicio</a>
+    </div>
+    <div class="cuerpo">
+
+    </div>
+    <script src="https://unvenezolanoenlima.com/wp-content/themes/4b-teme/js/jquery.js" type="text/javascript"></script>
+    <script>
+    var $URL_FILE="http://localhost:3000/download/";
+    var $path="";
+    function File(value){
+        DATA="";
+        $URL='http://localhost:3000/api/file/';
+        $.ajax({
+        url : $URL,
+        type : 'POST',
+        dataType: "json",
+        data:{"value":value},
+        success : function(DATA)
+        {   
+            if (DATA != 0) {
+                a=DATA;
+                for (let Z = 0; Z < DATA.length; Z++) {
+                    oncl=$path+DATA[Z];
+                    oncl=$URL_FILE+oncl.replace(/[/]/g,'RBENLACERB');
+
+
+                    $(".cuerpo").append("<a href="+oncl+" target='_blank' class='file'><img src='img/archivo.svg'> "+DATA[Z]+"</a>")
+                
+                }
+            }
+        }
+        });
+
+    };
+    function Dir(value){
+        DATA="";
+        $URL='http://localhost:3000/api/dir/';
+        $.ajax({
+        url : $URL,
+        type : 'POST',
+        dataType: "json",
+        data: {"value":value},
+        success : function(DATA)
+        {   
+            if (DATA != 0) {
+                a=DATA;
+                for (let X = 0; X < DATA.length; X++) {
+                    oncl="ListDir('"+DATA[X]+"')";
+                    $(".cuerpo").append("<div class='dir' onclick="+oncl+" date-value='"+DATA[X]+"'><img src='img/carpeta.svg'>"+DATA[X]+"</div>");
+//                    click_on();
+                
+                }
+            }
+        }
+        });
+
+    };
+
+    function Don(value){
+        DATA="";
+        value=value.replace(/[/]/g,'*#RB');
+        console.log(value);
+        $URL='http://localhost:3000/download/'+value;
+        $.ajax({
+        url : $URL,
+        type : 'GET',
+        dataType: "json",
+        success : function(DATA)
+        {   
+            console.log(DATA);
+        }
+        });
+
+    };
+
+    Dir();
+    File();
+    function ListDir(value){
+        $(".cuerpo").html("");
+        console.log(value);
+        $path=$path+value+'/';
+        Dir($path);
+        File($path);                
+    }
+
+    function donDir(value){
+        Don(value);
+    }
+    </script>
+</body>
+</html>
