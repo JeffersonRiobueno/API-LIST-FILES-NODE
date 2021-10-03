@@ -20,4 +20,4 @@ En el navegador colocar
 
 ### Configuración 
 
-Modificar `var path ="./assets/";` por la carpeta que desee listar su contenido.
+Modificar la variable `var path ="./assets/";` dentro del archivo app.js por la carpeta que desee listar su contenido.
